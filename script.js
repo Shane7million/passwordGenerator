@@ -37,3 +37,17 @@ generateBtn.addEventListener("click", () => {
   }
 });
 
+// Copy the generated password to the clipboard.
+copyBtn.addEventListener("click", async () => {
+  if (!passwordInput.value) {
+    message.textContent = "Please generate a password first.";
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(passwordInput.value);
+    message.textContent = "Password copied!";
+  } catch (error) {
+    message.textContent = "Could not copy password.";
+  }
+});
