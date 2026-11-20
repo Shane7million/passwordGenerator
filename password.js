@@ -47,3 +47,16 @@ export function generatePassword(length, includeNumbers, includeSymbols){
 
     return password.join("");
 }
+
+// Estimate password strength
+export function getStrength(length, includeNumbers, includeSymbols) {
+  if (length >= 16 && includeNumbers && includeSymbols) {
+    return "Strong";
+  }
+
+  if (length >= 12) {
+    return "Medium";
+  }
+
+  return "Weak";
+}
